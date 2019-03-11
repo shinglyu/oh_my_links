@@ -28,7 +28,11 @@ async function renderList(containerId) {
   const list = await getList();
   for (const url of list) {
     var listItem = document.createElement('li');
-    listItem.textContent = url;
+    var listLink = document.createElement('a');
+    listLink.href = url;
+    listLink.textContent = url;
+    listLink.target = '_blank';
+    listItem.appendChild(listLink);
     container.appendChild(listItem);
   }
 }
